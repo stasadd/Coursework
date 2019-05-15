@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:controller="views.XMLFormControllerMain" fx:id="mainAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #fefefe;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutX="350.0" layoutY="153.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <ImageView fx:id="imgLogo" fitHeight="311.0" fitWidth="692.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@youtube-analytics.png" />
+               </image>
+               <BorderPane.margin>
+                  <Insets top="50.0" />
+               </BorderPane.margin>
+            </ImageView>
+         </top>
+         <right>
+            <HBox fx:id="versionHBox" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Version: " textFill="#e33737">
+                     <font>
+                        <Font name="Arial Narrow" size="32.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelVersion" text="1.0.0" textFill="#e33737">
+                     <font>
+                        <Font name="Arial Narrow" size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </right>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="btnAnalyticsStart" onAction="#onAnalyticsStart" prefWidth="500.0" ripplerFill="#e33939b2" text="Перейти в YouTube Analytics">
+                     <VBox.margin>
+                        <Insets bottom="50.0" top="25.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial Narrow" size="36.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnSettingsStart" onAction="#onSettingsStart" prefWidth="500.0" ripplerFill="#e33b3bb2" text="Перейти в Настройки">
+                     <font>
+                        <Font name="Arial Narrow" size="36.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+               <BorderPane.margin>
+                  <Insets left="100.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
