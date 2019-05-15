@@ -2,21 +2,27 @@ package views;
 
 import com.jfoenix.controls.JFXButton;
 import config.Config;
+import config.Settings;
 import controllers.FileSaver;
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.ChannelInfo;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -56,13 +62,24 @@ public class XMLFormControllerMain implements Initializable {
         playAnimation(btnSettingsStart, duration, 3700);
     }
 
-    public void onAnalyticsStart(ActionEvent actionEvent) {
+    public void onAnalyticsStart(ActionEvent actionEvent) throws IOException {
         //todo start analytics form
 
-        try {
-            FileSaver.saveCache(new ChannelInfo());
-            FileSaver.saveSettings();
-        } catch (Exception ex) {}
+        Parent root = FXMLLoader.load(getClass().getResource("/TaskWindowFXML.fxml"));
+        Scene scene = new Scene(root);
+        Stage secondStage = new Stage();
+        Stage mainStage = (Stage) mainAnchorPane.getScene().getWindow();
+        secondStage.setScene(scene);
+        secondStage.initOwner(mainStage);
+        secondStage.setWidth(600);
+        secondStage.setHeight(600);
+        secondStage.setTitle("Task");
+        secondStage.show();
+
+//        try {
+//            FileSaver.saveCache(new ChannelInfo());
+//            FileSaver.saveSettings();
+//        } catch (Exception ex) {}
 
 //        try {
 //            String answer = YouTubeRequest.getChannelInfo("UCcAQJDkK-Xf-YGCGAdAY3Ig");

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:controller="views.XMLFormControllerTask" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fefefe;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <top>
+                  <BorderPane BorderPane.alignment="CENTER">
+                     <center>
+                        <JFXTextField fx:id="textChannelId" focusColor="#e33737" BorderPane.alignment="CENTER" />
+                     </center>
+                     <right>
+                        <JFXButton fx:id="btnAddChannel" onAction="#onBtnAddChannel" ripplerFill="#e33939b2" text="+" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <BorderPane.margin>
+                              <Insets left="10.0" />
+                           </BorderPane.margin>
+                        </JFXButton>
+                     </right>
+                  </BorderPane>
+               </top>
+               <center>
+                  <JFXListView fx:id="listChannelIds" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets top="10.0" />
+                     </BorderPane.margin>
+                  </JFXListView>
+               </center>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin></BorderPane>
+         </center>
+         <top>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="labelTaskDescription" maxWidth="1.7976931348623157E308" text="Відобразити та порівняти глобальну інформацію про YouTube канали" textAlignment="CENTER" textFill="#e33737" wrapText="true">
+                     <font>
+                        <Font name="Arial Narrow Bold" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelHint" maxWidth="1.7976931348623157E308" text="Введіть ID YouTube каналу та добавте його в список, натиснувши кнопку [+]" wrapText="true">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial Narrow" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </top>
+         <bottom>
+            <VBox BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="btnSendRequest" onAction="#onBtnSendRequest" maxWidth="1.7976931348623157E308" ripplerFill="#e33737b2" text="Відправити запит" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial Narrow Bold" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <AnchorPane>
+                     <children>
+                        <JFXProgressBar fx:id="progressBar" maxHeight="30.0" maxWidth="1.7976931348623157E308" prefHeight="30.0" style="-fx-accent: #e33939;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <HBox fx:id="boxTimeShow" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0">
+                           <children>
+                              <Label text="Час обробки запиту: ">
+                                 <font>
+                                    <Font name="Arial Narrow" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="labelSeconds" text="0">
+                                 <font>
+                                    <Font name="Arial Narrow" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
