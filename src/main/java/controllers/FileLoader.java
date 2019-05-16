@@ -12,7 +12,15 @@ import java.io.ObjectInputStream;
 public abstract class FileLoader {
 
     public static ChannelInfo loadCache(String channelId) {
-        //todo loadCache
+        String filePath = Settings.getInstance().getCacheDirectory() + "\\" + channelId;
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath)))
+        {
+            ChannelInfo ci =(ChannelInfo)ois.readObject();
+            return ci;
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
         return null;
     }
 
