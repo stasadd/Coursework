@@ -43,7 +43,7 @@ public abstract class FileSaver {
     }
 
     public static Boolean isDirCanMake(String dirPath){
-        File f = new File(dirPath);
+        File f = new File(dirPath );
         return f.canWrite();
     }
 
