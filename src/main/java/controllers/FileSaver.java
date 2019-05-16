@@ -9,6 +9,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public abstract class FileSaver {
 
@@ -37,6 +40,10 @@ public abstract class FileSaver {
         catch(Exception ex){
             System.out.println(ex.getMessage());
         }
+    }
+
+    public static Boolean isDirectoryExists(String dirPath){
+        return Files.exists(Paths.get(dirPath));
     }
 
     private static void checkDirExists(String dirName){
