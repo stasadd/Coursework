@@ -14,7 +14,14 @@ public abstract class FileSaver {
 
     public static void saveCache(ChannelInfo channelInfo) throws IOException {
         checkDirExists(Settings.getInstance().getCacheDirectory());
-        //todo save filecashe
+        String filePath = Settings.getInstance().getCacheDirectory() + "\\" + channelInfo.getChannelId();
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath)))
+        {
+            oos.writeObject(channelInfo);
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 
     public static void saveSettings() {

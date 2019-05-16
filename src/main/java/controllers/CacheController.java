@@ -3,6 +3,9 @@ package controllers;
 import config.Settings;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 
 public abstract class CacheController {
 
@@ -13,6 +16,28 @@ public abstract class CacheController {
     }
 
     public static void clearCache() {
-        //todo delete all files from CacheDir Settings.getInstance().getCacheDirectory();
+        Path directory = Paths.get(Settings.getInstance().getCacheDirectory());
+
+        if (Files.exists(directory))
+        {
+            try {
+                Files.walkFileTree(directory, new SimpleFileVisitor<Path>() {
+                    @Override
+                    public FileVisitResult visitFile(Path path, BasicFileAttributes basicFileAttributes) throws IOException {
+                        Files.delete(path);
+                        return FileVisitResult.CONTINUE;
+                    }
+
+                    @Override
+                    public FileVisitResult postVisitDirectory(Path directory, IOException ioException) throws IOException {
+                        Files.delete(directory);
+                        return FileVisitResult.CONTINUE;
+                    }
+                });
+            }
+            catch (IOException e){
+                System.out.println(e);
+            }
+        }
     }
 }
