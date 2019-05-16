@@ -89,7 +89,7 @@ public class XMLFormControllerMain implements Initializable {
 //        try {
 //            String answer = YouTubeRequest.getChannelInfo("UCcAQJDkK-Xf-YGCGAdAY3Ig");
 //            Gson gson = new Gson();
-//            YoutubeAnswer youtubeAnswer = gson.fromJson(answer, YoutubeAnswer.class);
+//            YoutubeChannelInfoAnswer youtubeAnswer = gson.fromJson(answer, YoutubeChannelInfoAnswer.class);
 //
 //            System.out.println(youtubeAnswer.items[0].snippet.title);
 //            System.out.println(youtubeAnswer.items[0].statistics.subscriberCount);

@@ -5,9 +5,6 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import config.Config;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class YouTubeRequest {
 
     public String getChannelInfo(String channelId) throws UnirestException {

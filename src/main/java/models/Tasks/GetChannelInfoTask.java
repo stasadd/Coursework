@@ -25,7 +25,8 @@ public class GetChannelInfoTask extends Task<ObservableList<ChannelInfo>> {
         for (String id : this.channelsId) {
             if(Settings.getInstance().isSaveCache() && CacheController.isCacheExist(id)) {
                 ChannelInfo channelInfoFromCache = FileLoader.loadCache(id);
-                list.add(channelInfoFromCache);
+                if(channelInfoFromCache != null)
+                    list.add(channelInfoFromCache);
             }
             else {
 

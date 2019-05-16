@@ -1,4 +1,4 @@
-package models.YouTubeAnswer;
+package models.YoutubeChannelInfoAnswer;
 
 public class PageInfo {
     public int totalResults;

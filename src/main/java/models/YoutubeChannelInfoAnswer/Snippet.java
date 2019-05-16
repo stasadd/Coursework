@@ -1,4 +1,4 @@
-package models.YouTubeAnswer;
+package models.YoutubeChannelInfoAnswer;
 
 public class Snippet {
     public String title;

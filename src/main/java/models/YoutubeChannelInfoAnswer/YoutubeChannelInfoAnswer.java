@@ -1,6 +1,6 @@
-package models.YouTubeAnswer;
+package models.YoutubeChannelInfoAnswer;
 
-public class YoutubeAnswer {
+public class YoutubeChannelInfoAnswer {
     public String kind;
     public String etag;
     public PageInfo pageInfo;
