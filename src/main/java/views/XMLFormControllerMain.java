@@ -28,6 +28,8 @@ import java.util.ResourceBundle;
 
 public class XMLFormControllerMain implements Initializable {
 
+    static boolean firstLaunch = true;
+
     @FXML
     private ResourceBundle resources;
 
@@ -55,11 +57,14 @@ public class XMLFormControllerMain implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         labelVersion.setText(Config.getVersion());
 
-        int duration = 1500;
-        playAnimation(imgLogo, duration, 500);
-        playAnimation(versionHBox, duration, 1500);
-        playAnimation(btnAnalyticsStart, duration, 2800);
-        playAnimation(btnSettingsStart, duration, 3700);
+        if(firstLaunch) {
+            int duration = 1000;
+            playAnimation(imgLogo, duration, 500);
+            playAnimation(versionHBox, duration, 1000);
+            playAnimation(btnAnalyticsStart, duration, 1500);
+            playAnimation(btnSettingsStart, duration, 2000);
+            firstLaunch = false;
+        }
     }
 
     public void onAnalyticsStart(ActionEvent actionEvent) throws IOException {
