@@ -42,8 +42,9 @@ public abstract class FileSaver {
         }
     }
 
-    public static Boolean isDirectoryExists(String dirPath){
-        return Files.exists(Paths.get(dirPath));
+    public static Boolean isDirCanMake(String dirPath){
+        File f = new File(dirPath);
+        return f.canWrite();
     }
 
     private static void checkDirExists(String dirName){
