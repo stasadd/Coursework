@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:controller="views.XMLFormControllerSetup" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #FEFEFE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutY="-6.0" prefHeight="340.0" prefWidth="748.0" style="-fx-background-color: #fefefe;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <BorderPane prefHeight="102.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+               <left>
+                  <JFXButton fx:id="btnBack" prefHeight="41.0" prefWidth="154.0" ripplerFill="#e33939b2" text="← " BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </JFXButton>
+               </left>
+               <center>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Налаштування" textFill="#e33737" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="60.0" />
+                     </font>
+                  </Label>
+               </center>
+               <right>
+                  <Pane prefHeight="102.0" prefWidth="154.0" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+         </top>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <top>
+                  <BorderPane prefHeight="196.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+                     <center>
+                        <JFXTextField focusColor="#e33737" prefHeight="25.0" prefWidth="816.0" unFocusColor="#e33737" BorderPane.alignment="CENTER" />
+                     </center>
+                     <left>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="61.0" prefWidth="182.0" text="Шлях до кешу" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                     </left>
+                     <right>
+                        <JFXButton fx:id="btnClearCache" prefHeight="116.0" prefWidth="232.0" ripplerFill="#e33737b2" text="Очистити кеш" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </JFXButton>
+                     </right>
+                  </BorderPane>
+               </top>
+               <center>
+                  <BorderPane prefHeight="242.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+                     <center>
+                        <JFXCheckBox fx:id="rbUserCache" checkedColor="#e33939b2" text="Змінити користуватський кеш" unCheckedColor="BLACK" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </JFXCheckBox>
+                     </center>
+                  </BorderPane>
+               </center>
+               <bottom>
+                  <BorderPane prefHeight="214.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+                     <center>
+                        <JFXCheckBox fx:id="rbTimeToActing" checkedColor="#e33939b2" text="Змінити відображення часу на виконання" unCheckedColor="BLACK" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </JFXCheckBox>
+                     </center>
+                  </BorderPane>
+               </bottom>
+            </BorderPane>
+         </center>
+         <bottom>
+            <BorderPane prefHeight="116.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+               <left>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" />
+                        <JFXButton fx:id="btnDefoult" prefHeight="116.0" prefWidth="308.0" ripplerFill="#e33737b2" text="Дефолт">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </left>
+               <right>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <JFXButton fx:id="btnSave" prefHeight="120.0" prefWidth="204.0" ripplerFill="#e33939b2" text="Зберегти">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </JFXButton>
+                        <Pane prefHeight="116.0" prefWidth="54.0" />
+                     </children>
+                  </HBox>
+               </right>
+            </BorderPane>
+         </bottom>
+      </BorderPane>
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>

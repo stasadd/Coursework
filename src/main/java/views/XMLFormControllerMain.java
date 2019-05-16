@@ -92,8 +92,19 @@ public class XMLFormControllerMain implements Initializable {
 
     }
 
-    public void onSettingsStart(ActionEvent actionEvent) {
+    public void onSettingsStart(ActionEvent actionEvent) throws IOException {
         //todo start settings form
+
+        Parent root = FXMLLoader.load(getClass().getResource("/SetupWindowFXML.fxml"));
+        Scene scene = new Scene(root);
+        Stage secondStage = new Stage();
+        Stage mainStage = (Stage) mainAnchorPane.getScene().getWindow();
+        secondStage.setScene(scene);
+        secondStage.initOwner(mainStage);
+        secondStage.setWidth(1100);
+        secondStage.setHeight(800);
+        secondStage.setTitle("Setup");
+        secondStage.show();
     }
 
     private void playAnimation(Node node, int duration, int delay) {
