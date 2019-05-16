@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 public class XMLFormControllerTable implements Initializable {
 
     private ObservableList<ChannelInfo> list;
+
     private boolean allColumns;
 
     @FXML
