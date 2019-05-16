@@ -8,6 +8,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXTextField;
+import config.Settings;
+import controllers.CacheController;
+import controllers.FileSaver;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
@@ -52,23 +55,32 @@ public class XMLFormControllerSetup {
 
     }
     public void onClearCache(){
-
+        CacheController.clearCache();
     }
     public void onUserCache (){
+        Settings.getInstance().setSaveCache(rbUserCache.isDisable());
 
     }
     public void onTimeToActing (){
+        Settings.getInstance().setTimeShow(rbTimeToActing.isDisable());
 
     }
     public void onBtnDefault (){
+        Settings.getInstance().setDefaultSettings();
+        rbUserCache.setSelected(Settings.getInstance().isSaveCache());
+        rbTimeToActing.setSelected(Settings.getInstance().isTimeShow());
+        exTextFild.setText(Settings.getInstance().getCacheDirectory());
 
     }
     public void onBtnSave(){
 
+        FileSaver.saveSettings();
     }
     @FXML
     void initialize() {
-
+        exTextFild.setText(Settings.getInstance().getCacheDirectory());
+        rbUserCache.setSelected(Settings.getInstance().isSaveCache());
+        rbTimeToActing.setSelected(Settings.getInstance().isTimeShow());
 
     }
 
