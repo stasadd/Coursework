@@ -13,6 +13,7 @@ import controllers.CacheController;
 import controllers.FileSaver;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 
 public class XMLFormControllerSetup {
@@ -47,39 +48,47 @@ public class XMLFormControllerSetup {
     @FXML
     private JFXButton btnSave;
 
+
+
     public  void onBtnBack () throws IOException {
         AnchorPane element = FXMLLoader.load(getClass().getResource("/MainWindowFXML.fxml"));
         SetupAncore.getChildren().setAll(element);
-    }
 
+    }
     public void onClearCache(){
         CacheController.clearCache();
     }
-
     public void onUserCache (){
-        Settings.getInstance().setSaveCache(rbUserCache.selectedProperty().get());
-    }
+        Settings.getInstance().setSaveCache(rbUserCache.isDisable());
 
+    }
     public void onTimeToActing (){
-        Settings.getInstance().setTimeShow(rbTimeToActing.selectedProperty().get());
-    }
+        Settings.getInstance().setTimeShow(rbTimeToActing.isDisable());
 
+    }
     public void onBtnDefault (){
         Settings.getInstance().setDefaultSettings();
         rbUserCache.setSelected(Settings.getInstance().isSaveCache());
         rbTimeToActing.setSelected(Settings.getInstance().isTimeShow());
         exTextFild.setText(Settings.getInstance().getCacheDirectory());
-    }
 
+    }
     public void onBtnSave(){
-        FileSaver.saveSettings();
-    }
+        if (FileSaver.isDirCanMake(Settings.getInstance().getCacheDirectory())) {
+            FileSaver.saveSettings();
+            new Alert(Alert.AlertType.INFORMATION, "Успішно збережено").showAndWait();
+        }
+        else
+            new Alert(Alert.AlertType.ERROR, "Дерикторію неможна створити").showAndWait();
 
+
+    }
     @FXML
     void initialize() {
         exTextFild.setText(Settings.getInstance().getCacheDirectory());
         rbUserCache.setSelected(Settings.getInstance().isSaveCache());
         rbTimeToActing.setSelected(Settings.getInstance().isTimeShow());
+
     }
 
 }
