@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import config.Config;
 import config.Settings;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -21,6 +22,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -106,15 +108,23 @@ public class XMLFormControllerTask implements Initializable {
         progressBar.progressProperty().unbind();
         progressBar.progressProperty().bind(getChannelInfoTask.progressProperty());
 
+        final Thread getChannelThread = new Thread(getChannelInfoTask);
+
         Thread timer = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    int seconds = 0;
+                    double seconds = 0.0;
                     while(!Thread.currentThread().isInterrupted()) {
-                        seconds++;
+                        seconds += 0.1;
+                        seconds = Math.round(seconds*100)/100.0;
                         setSeconds(seconds);
-                        Thread.sleep(1000);
+                        Thread.sleep(100);
+
+                        if(seconds >= Config.getMaxTimeWaiting()) {
+                            getChannelThread.interrupt();
+                            Thread.currentThread().interrupt();
+                        }
                     }
                 } catch (Exception ex) {  }
             }
@@ -124,6 +134,12 @@ public class XMLFormControllerTask implements Initializable {
             @Override
             public void handle(WorkerStateEvent event) {
                 ObservableList<ChannelInfo> channelInfos = getChannelInfoTask.getValue();
+                if(channelInfos == null || channelInfos.isEmpty()) {
+                    Stage currentStage = (Stage) textChannelId.getScene().getWindow();
+                    currentStage.close();
+                    new Alert(Alert.AlertType.ERROR, "Запит не повернув жодних результатів").showAndWait();
+                    return;
+                }
                 progressBar.progressProperty().unbind();
                 progressBar.setProgress(1);
                 if(Settings.getInstance().isTimeShow()) {
@@ -153,7 +169,16 @@ public class XMLFormControllerTask implements Initializable {
             }
         });
 
-        new Thread(getChannelInfoTask).start();
+        getChannelInfoTask.addEventHandler(WorkerStateEvent.WORKER_STATE_FAILED, new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent event) {
+                Stage currentStage = (Stage) textChannelId.getScene().getWindow();
+                currentStage.close();
+                new Alert(Alert.AlertType.ERROR, "Помилка обробки запиту").showAndWait();
+            }
+        });
+
+        getChannelThread.start();
         if(Settings.getInstance().isTimeShow()) {
             timer.setDaemon(true);
             timer.start();
@@ -169,4 +194,12 @@ public class XMLFormControllerTask implements Initializable {
         });
     }
 
+    private void setSeconds(double seconds) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                labelSeconds.setText(String.valueOf(seconds));
+            }
+        });
+    }
 }

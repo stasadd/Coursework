@@ -6,6 +6,7 @@ public abstract class Config {
     private static final String SettingsDirectory = "SettingsDir";
     private static final String DefaultCacheDir = "CacheDir";
     private static String Version = "1.0.1";
+    private static double maxTimeWaiting = 60;
 
     public static String getApiKey() {
         return ApiKey;
@@ -27,4 +28,11 @@ public abstract class Config {
         Version = version;
     }
 
+    public static double getMaxTimeWaiting() {
+        return maxTimeWaiting;
+    }
+
+    public static void setMaxTimeWaiting(double maxTimeWaiting) {
+        Config.maxTimeWaiting = maxTimeWaiting;
+    }
 }

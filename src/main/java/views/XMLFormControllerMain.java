@@ -98,8 +98,6 @@ public class XMLFormControllerMain implements Initializable {
     }
 
     public void onSettingsStart(ActionEvent actionEvent) throws IOException {
-        //todo start settings form
-
         AnchorPane element = FXMLLoader.load(getClass().getResource("/SetupWindowFXML.fxml"));
         mainAnchorPane.getChildren().setAll(element);
     }
