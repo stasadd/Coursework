@@ -68,18 +68,10 @@ public class XMLFormControllerMain implements Initializable {
     }
 
     public void onAnalyticsStart(ActionEvent actionEvent) throws IOException {
-        //todo start analytics form
 
-        Parent root = FXMLLoader.load(getClass().getResource("/TaskWindowFXML.fxml"));
-        Scene scene = new Scene(root);
-        Stage secondStage = new Stage();
-        Stage mainStage = (Stage) mainAnchorPane.getScene().getWindow();
-        secondStage.setScene(scene);
-        secondStage.initOwner(mainStage);
-        secondStage.setWidth(600);
-        secondStage.setHeight(600);
-        secondStage.setTitle("Task");
-        secondStage.show();
+        AnchorPane elements = FXMLLoader.load(getClass().getResource("/AnalyticsWindowFXML.fxml"));
+        mainAnchorPane.getChildren().setAll(elements);
+
 
 //        try {
 //            FileSaver.saveCache(new ChannelInfo());
@@ -98,7 +90,6 @@ public class XMLFormControllerMain implements Initializable {
     }
 
     public void onSettingsStart(ActionEvent actionEvent) throws IOException {
-        //todo start settings form
 
         AnchorPane element = FXMLLoader.load(getClass().getResource("/SetupWindowFXML.fxml"));
         mainAnchorPane.getChildren().setAll(element);

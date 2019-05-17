@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="AnalyticAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1100.0" style="-fx-background-color: #FEFEFE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.AnalyticWindowFXML">
+   <children>
+      <BorderPane layoutY="-6.0" prefHeight="340.0" prefWidth="748.0" style="-fx-background-color: #fefefe;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <BorderPane prefHeight="102.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+               <left>
+                  <JFXButton fx:id="btnBack" onAction="#onBtnBack" prefHeight="41.0" prefWidth="154.0" ripplerFill="#e33939b2" text="← " BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </JFXButton>
+               </left>
+               <center>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Youtube Analytics" textFill="#e33737" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="60.0" />
+                     </font>
+                  </Label>
+               </center>
+               <right>
+                  <Pane prefHeight="102.0" prefWidth="154.0" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+         </top>
+         <bottom>
+            <BorderPane prefHeight="116.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+               <left>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </HBox>
+               </left>
+               <right>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Pane prefHeight="116.0" prefWidth="54.0" />
+                        <JFXButton fx:id="btnOk" onAction="#onBtnOk" prefHeight="92.0" prefWidth="147.0" ripplerFill="#e33939b2" text="Вибрати">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </JFXButton>
+                        <Pane prefHeight="116.0" prefWidth="54.0" />
+                     </children>
+                  </HBox>
+               </right>
+            </BorderPane>
+         </bottom>
+         <center>
+            <JFXListView fx:id="ListViewGroup" onMousePressed="#onEditList"  prefHeight="532.0" prefWidth="738.0" BorderPane.alignment="CENTER" />
+         </center>
+         <left>
+            <Pane prefHeight="532.0" prefWidth="176.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Pane prefHeight="532.0" prefWidth="168.0" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>

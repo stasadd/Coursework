@@ -13,6 +13,7 @@ import controllers.CacheController;
 import controllers.FileSaver;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.AnchorPane;
 
 public class XMLFormControllerSetup {
@@ -73,8 +74,14 @@ public class XMLFormControllerSetup {
 
     }
     public void onBtnSave(){
+        if (FileSaver.isDirCanMake(Settings.getInstance().getCacheDirectory())) {
+            FileSaver.saveSettings();
+            new Alert(Alert.AlertType.INFORMATION, "Успішно збережено").showAndWait();
+        }
+        else
+            new Alert(Alert.AlertType.ERROR, "Дерикторію неможна створити").showAndWait();
 
-        FileSaver.saveSettings();
+
     }
     @FXML
     void initialize() {
