@@ -9,8 +9,6 @@ import java.nio.file.attribute.BasicFileAttributes;
 
 public abstract class CacheController {
 
-    //todo ....
-
     public static boolean isCacheExist(String fileName) {
         return new File(Settings.getInstance().getCacheDirectory() + "\\" + fileName).exists();
     }

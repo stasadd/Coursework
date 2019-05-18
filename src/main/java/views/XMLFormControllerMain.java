@@ -78,14 +78,7 @@ public class XMLFormControllerMain implements Initializable {
 //            FileSaver.saveSettings();
 //        } catch (Exception ex) {}
 
-//        try {
-//            String answer = YouTubeRequest.getChannelInfo("UCcAQJDkK-Xf-YGCGAdAY3Ig");
-//            Gson gson = new Gson();
-//            YoutubeChannelInfoAnswer youtubeAnswer = gson.fromJson(answer, YoutubeChannelInfoAnswer.class);
-//
-//            System.out.println(youtubeAnswer.items[0].snippet.title);
-//            System.out.println(youtubeAnswer.items[0].statistics.subscriberCount);
-//        } catch (Exception ex) {}
+
 
     }
 

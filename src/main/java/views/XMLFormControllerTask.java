@@ -134,7 +134,7 @@ public class XMLFormControllerTask implements Initializable {
 
         boxTimeShow.setVisible(Settings.getInstance().isTimeShow());
 
-        GetChannelInfoTask getChannelInfoTask = new GetChannelInfoTask(channels);
+        GetChannelInfoTask getChannelInfoTask = new GetChannelInfoTask(channels, taskModel);
         progressBar.progressProperty().unbind();
         progressBar.progressProperty().bind(getChannelInfoTask.progressProperty());
 
