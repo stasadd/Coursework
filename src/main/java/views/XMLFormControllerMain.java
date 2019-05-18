@@ -68,22 +68,11 @@ public class XMLFormControllerMain implements Initializable {
     }
 
     public void onAnalyticsStart(ActionEvent actionEvent) throws IOException {
-
         AnchorPane elements = FXMLLoader.load(getClass().getResource("/AnalyticsWindowFXML.fxml"));
         mainAnchorPane.getChildren().setAll(elements);
-
-
-//        try {
-//            FileSaver.saveCache(new ChannelInfo());
-//            FileSaver.saveSettings();
-//        } catch (Exception ex) {}
-
-
-
     }
 
     public void onSettingsStart(ActionEvent actionEvent) throws IOException {
-
         AnchorPane element = FXMLLoader.load(getClass().getResource("/SetupWindowFXML.fxml"));
         mainAnchorPane.getChildren().setAll(element);
     }

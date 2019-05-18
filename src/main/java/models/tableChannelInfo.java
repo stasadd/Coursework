@@ -14,10 +14,10 @@ public class tableChannelInfo {
         TableColumn<ChannelInfo, String> idCol = new TableColumn<>("ID каналу");
         TableColumn<ChannelInfo, String> titleCol = new TableColumn<>("Назка каналу");
         TableColumn<ChannelInfo, String> publishedAtCol = new TableColumn<>("Дата створення");
-        TableColumn<ChannelInfo, String> subscriberCountCol = new TableColumn<>("Кількість підписників");
-        TableColumn<ChannelInfo, String> videoCountCol = new TableColumn<>("Кількість відео");
-        TableColumn<ChannelInfo, String> viewCountCol = new TableColumn<>("Загальна кількість переглядів");
-        TableColumn<ChannelInfo, String> commentCountCol = new TableColumn<>("Загальна кількість коментарів");
+        TableColumn<ChannelInfo, String> subscriberCountCol = new TableColumn<>("Підписники");
+        TableColumn<ChannelInfo, String> videoCountCol = new TableColumn<>("Відео");
+        TableColumn<ChannelInfo, String> viewCountCol = new TableColumn<>("Перегляди");
+        TableColumn<ChannelInfo, String> commentCountCol = new TableColumn<>("Коментарі");
 
         idCol.setCellValueFactory(new PropertyValueFactory<ChannelInfo, String>("channelId"));
         idCol.setMinWidth(150);
@@ -30,9 +30,9 @@ public class tableChannelInfo {
         videoCountCol.setCellValueFactory(new PropertyValueFactory<ChannelInfo, String>("videoCount"));
         videoCountCol.setMinWidth(150);
         viewCountCol.setCellValueFactory(new PropertyValueFactory<ChannelInfo, String>("viewCount"));
-        viewCountCol.setMinWidth(250);
+        viewCountCol.setMinWidth(200);
         commentCountCol.setCellValueFactory(new PropertyValueFactory<ChannelInfo, String>("commentCount"));
-        commentCountCol.setMinWidth(250);
+        commentCountCol.setMinWidth(200);
 
         table.setItems(list);
         table.getColumns().addAll(idCol, titleCol, publishedAtCol, subscriberCountCol, videoCountCol, viewCountCol);
