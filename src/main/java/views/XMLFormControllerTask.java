@@ -29,6 +29,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import models.ChannelInfo;
+import models.TaskModel;
 import models.Tasks.GetChannelInfoTask;
 
 public class XMLFormControllerTask implements Initializable {
@@ -68,8 +69,21 @@ public class XMLFormControllerTask implements Initializable {
 
     ObservableList<String> channels = FXCollections.observableArrayList();
 
+    private TaskModel taskModel = null;
+
+    public void setTaskModel(TaskModel taskModel) {
+        this.taskModel = taskModel;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                labelTaskDescription.setText(taskModel.getTaskDescription());
+            }
+        });
+
         progressBar.setProgress(0);
         boxTimeShow.setVisible(Settings.getInstance().isTimeShow());
         listChannelIds.setItems(channels);
@@ -85,8 +99,16 @@ public class XMLFormControllerTask implements Initializable {
             @Override
             public void handle(KeyEvent event) {
                 if(event.getCode().equals(KeyCode.ENTER) && !textChannelId.getText().isEmpty()) {
-                    channels.add(textChannelId.getText());
-                    textChannelId.clear();
+                    if(taskModel.getMaxChannelsIds() == -1) {
+                        channels.add(textChannelId.getText());
+                        textChannelId.clear();
+                    }
+                    else {
+                        if(channels.size() < taskModel.getMaxChannelsIds()) {
+                            channels.add(textChannelId.getText());
+                            textChannelId.clear();
+                        }
+                    }
                 }
             }
         });
@@ -94,8 +116,16 @@ public class XMLFormControllerTask implements Initializable {
 
     public void onBtnAddChannel(ActionEvent actionEvent) {
         if(!textChannelId.getText().isEmpty()) {
-            channels.add(textChannelId.getText());
-            textChannelId.clear();
+            if(taskModel.getMaxChannelsIds() == -1) {
+                channels.add(textChannelId.getText());
+                textChannelId.clear();
+            }
+            else {
+                if(channels.size() < taskModel.getMaxChannelsIds()) {
+                    channels.add(textChannelId.getText());
+                    textChannelId.clear();
+                }
+            }
         }
     }
 
@@ -154,7 +184,7 @@ public class XMLFormControllerTask implements Initializable {
                 }
                 XMLFormControllerTable controllerTable = loader.<XMLFormControllerTable>getController();
                 controllerTable.setList(channelInfos);
-                controllerTable.setAllColumns(true);
+                controllerTable.setAllColumns(taskModel.isAllColumns());
                 Scene scene = new Scene(root);
                 Stage secondStage = new Stage();
                 Stage currentStage = (Stage) textChannelId.getScene().getWindow();

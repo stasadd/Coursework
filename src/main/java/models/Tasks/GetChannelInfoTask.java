@@ -32,14 +32,14 @@ public class GetChannelInfoTask extends Task<ObservableList<ChannelInfo>> {
 
                 //todo from youtube
 
-                if(Settings.getInstance().isSaveCache()) {
-                    try {
-                        //todo save cache
-                        FileSaver.saveCache(null);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+//                if(Settings.getInstance().isSaveCache()) {
+//                    try {
+//                        //todo save cache
+//                        FileSaver.saveCache(null);
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
             }
 
             if(Thread.currentThread().isInterrupted()) return null;
