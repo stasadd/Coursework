@@ -1,11 +1,13 @@
 package models;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class ChannelInfo implements Serializable {
     private String channelId;
     private String title;
     private String publishedAt;
+    private Date _publishedAt;
     private String subscriberCount;
     private Integer _subscriberCount;
     private String videoCount;
@@ -45,7 +47,9 @@ public class ChannelInfo implements Serializable {
 
     public void setSubscriberCount(String subscriberCount) {
         this.subscriberCount = subscriberCount;
-        this._subscriberCount = Integer.parseInt(subscriberCount);
+        try {
+            this._subscriberCount = Integer.parseInt(subscriberCount);
+        } catch (Exception ex) {}
     }
 
     public String getVideoCount() {
@@ -54,7 +58,9 @@ public class ChannelInfo implements Serializable {
 
     public void setVideoCount(String videoCount) {
         this.videoCount = videoCount;
-        this._videoCount = Integer.parseInt(videoCount);
+        try {
+            this._videoCount = Integer.parseInt(videoCount);
+        } catch (Exception ex) {}
     }
 
     public String getViewCount() {
@@ -63,7 +69,9 @@ public class ChannelInfo implements Serializable {
 
     public void setViewCount(String viewCount) {
         this.viewCount = viewCount;
-        this._viewCount = Integer.parseInt(viewCount);
+        try {
+            this._viewCount = Integer.parseInt(viewCount);
+        } catch (Exception ex) {}
     }
 
     public String getCommentCount() {
@@ -72,7 +80,9 @@ public class ChannelInfo implements Serializable {
 
     public void setCommentCount(String commentCount) {
         this.commentCount = commentCount;
-        this._commentCount = Integer.parseInt(commentCount);
+        try {
+            this._commentCount = Integer.parseInt(commentCount);
+        } catch (Exception ex) {}
     }
 
     public Integer get_subscriberCount() {
