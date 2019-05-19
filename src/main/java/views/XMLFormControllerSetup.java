@@ -11,6 +11,7 @@ import com.jfoenix.controls.JFXTextField;
 import config.Settings;
 import controllers.CacheController;
 import controllers.FileSaver;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -57,7 +58,22 @@ public class XMLFormControllerSetup {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                CacheController.clearCache();
+                try {
+                    CacheController.clearCache();
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            new Alert(Alert.AlertType.INFORMATION, "Кеш успішно видалено").showAndWait();
+                        }
+                    });
+                } catch (Exception ex) {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            new Alert(Alert.AlertType.ERROR, "Сталася помилка під час видалення кешу").showAndWait();
+                        }
+                    });
+                }
             }
         }).start();
     }
@@ -83,7 +99,7 @@ public class XMLFormControllerSetup {
             new Alert(Alert.AlertType.INFORMATION, "Успішно збережено").showAndWait();
         }
         else
-            new Alert(Alert.AlertType.ERROR, "Дерикторію неможна створити").showAndWait();
+            new Alert(Alert.AlertType.ERROR, "Дерикторію створити неможливо").showAndWait();
     }
 
     @FXML
