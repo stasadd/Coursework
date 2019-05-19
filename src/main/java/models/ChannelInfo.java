@@ -7,9 +7,13 @@ public class ChannelInfo implements Serializable {
     private String title;
     private String publishedAt;
     private String subscriberCount;
+    private Integer _subscriberCount;
     private String videoCount;
+    private Integer _videoCount;
     private String viewCount;
+    private Integer _viewCount;
     private String commentCount;
+    private Integer _commentCount;
 
     public String getChannelId() {
         return channelId;
@@ -41,6 +45,7 @@ public class ChannelInfo implements Serializable {
 
     public void setSubscriberCount(String subscriberCount) {
         this.subscriberCount = subscriberCount;
+        this._subscriberCount = Integer.parseInt(subscriberCount);
     }
 
     public String getVideoCount() {
@@ -49,6 +54,7 @@ public class ChannelInfo implements Serializable {
 
     public void setVideoCount(String videoCount) {
         this.videoCount = videoCount;
+        this._videoCount = Integer.parseInt(videoCount);
     }
 
     public String getViewCount() {
@@ -57,6 +63,7 @@ public class ChannelInfo implements Serializable {
 
     public void setViewCount(String viewCount) {
         this.viewCount = viewCount;
+        this._viewCount = Integer.parseInt(viewCount);
     }
 
     public String getCommentCount() {
@@ -65,5 +72,22 @@ public class ChannelInfo implements Serializable {
 
     public void setCommentCount(String commentCount) {
         this.commentCount = commentCount;
+        this._commentCount = Integer.parseInt(commentCount);
+    }
+
+    public Integer get_subscriberCount() {
+        return _subscriberCount;
+    }
+
+    public Integer get_videoCount() {
+        return _videoCount;
+    }
+
+    public Integer get_viewCount() {
+        return _viewCount;
+    }
+
+    public Integer get_commentCount() {
+        return _commentCount;
     }
 }
