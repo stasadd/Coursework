@@ -50,7 +50,7 @@ public abstract class FileSaver {
             try{
                 directory.mkdir();
                 flag = true;
-                Files.delete(Paths.get(dirPath)); //видалити якщо не треба видаляти папку
+                //Files.delete(Paths.get(dirPath)); //видалити якщо не треба видаляти папку
             }
             catch (Exception e){}
         }

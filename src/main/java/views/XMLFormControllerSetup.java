@@ -78,14 +78,12 @@ public class XMLFormControllerSetup {
     }
 
     public void onBtnSave(){
-        FileSaver.saveSettings();
-
-//        if (FileSaver.isDirCanMake(Settings.getInstance().getCacheDirectory())) {
-//            FileSaver.saveSettings();
-//            new Alert(Alert.AlertType.INFORMATION, "Успішно збережено").showAndWait();
-//        }
-//        else
-//            new Alert(Alert.AlertType.ERROR, "Дерикторію неможна створити").showAndWait();
+        if (FileSaver.isDirCanMake(Settings.getInstance().getCacheDirectory())) {
+            FileSaver.saveSettings();
+            new Alert(Alert.AlertType.INFORMATION, "Успішно збережено").showAndWait();
+        }
+        else
+            new Alert(Alert.AlertType.ERROR, "Дерикторію неможна створити").showAndWait();
     }
 
     @FXML
