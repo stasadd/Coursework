@@ -54,7 +54,12 @@ public class XMLFormControllerSetup {
     }
 
     public void onClearCache(){
-        CacheController.clearCache();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                CacheController.clearCache();
+            }
+        }).start();
     }
 
     public void onUserCache (){
