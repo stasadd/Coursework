@@ -48,7 +48,7 @@ public class ChannelInfo implements Serializable {
             Matcher m = r.matcher(this.publishedAt);
             if (m.find()) {
                 String st = m.group(2)+" "+m.group(4);
-                SimpleDateFormat date =  new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 this._publishedAt = date.parse(st);
             }
         }
@@ -113,5 +113,9 @@ public class ChannelInfo implements Serializable {
 
     public Integer get_commentCount() {
         return _commentCount;
+    }
+
+    public Date get_publishedAt() {
+        return _publishedAt;
     }
 }

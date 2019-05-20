@@ -1,10 +1,14 @@
 package models;
 
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class tableChannelInfo {
@@ -15,7 +19,7 @@ public class tableChannelInfo {
 
         TableColumn<ChannelInfo, String> idCol = new TableColumn<>("ID каналу");
         TableColumn<ChannelInfo, String> titleCol = new TableColumn<>("Назка каналу");
-        TableColumn<ChannelInfo, Date> publishedAtCol = new TableColumn<>("Дата створення");
+        TableColumn<ChannelInfo, Date> publishedAtCol = new TableColumn<ChannelInfo, Date>("Дата створення");
         TableColumn<ChannelInfo, Integer> subscriberCountCol = new TableColumn<>("Підписники");
         TableColumn<ChannelInfo, Integer> videoCountCol = new TableColumn<>("Відео");
         TableColumn<ChannelInfo, Integer> viewCountCol = new TableColumn<>("Перегляди");
