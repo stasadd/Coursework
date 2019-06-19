@@ -5,11 +5,11 @@ import javafx.collections.ObservableList;
 import models.TaskModel;
 
 public abstract class Config {
-    private static final String ApiKey = "";
+    private static final String ApiKey = "AIzaSyDRUaT8X-R0GWc39otDljXzSLoCQQUD0oQ";
     private static final String SettingsDirectory = "SettingsDir";
     private static final String DefaultCacheDir = "CacheDir";
     private static String Version = "1.0.1";
-    private static double maxTimeWaiting = 30;
+    private static double maxTimeWaiting = 90;
     private static ObservableList<TaskModel> taskModels = FXCollections.observableArrayList();
 
     static {

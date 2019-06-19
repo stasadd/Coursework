@@ -95,6 +95,9 @@ public class XMLFormControllerSetup {
 
     public void onBtnSave(){
         if (FileSaver.isDirCanMake(Settings.getInstance().getCacheDirectory())) {
+            if(FileSaver.isDirCanMake(exTextFild.getText())) {
+                Settings.getInstance().setCacheDirectory(exTextFild.getText());
+            }
             FileSaver.saveSettings();
             new Alert(Alert.AlertType.INFORMATION, "Успішно збережено").showAndWait();
         }
